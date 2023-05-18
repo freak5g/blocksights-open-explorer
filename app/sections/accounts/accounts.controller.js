@@ -67,6 +67,7 @@ import {sha256} from "js-sha256";
                         cashback_balance: utilities.formatBalance(cashback_balance_balance, 5),
                         lifetime: lifetime,
                         lifetime_fees_paid: utilities.formatBalance(lifetime_fees_paid, 5),
+                        total_ops: fullAccount.statistics.total_ops,
                         bts_balance: utilities.formatBalance(core_balance, 5),
                         vesting: vesting_balances,
                         memo_key: fullAccount.account.options.memo_key,
@@ -120,7 +121,7 @@ import {sha256} from "js-sha256";
                     accountService.parseAuth(fullAccount.account.active.key_auths, "key", function (returnData) {
                         $scope.active_keys = returnData;
                     });
-                    
+
                     accountService.parseAuth(fullAccount.account.active.account_auths, "account",
                         function (returnData) {
                         $scope.active_accounts = returnData;
