@@ -26,7 +26,7 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th ng-click='sortColumn("name")' ng-class='sortClass("name")'><span data-translate="Name"></span></th>
+                        <th ng-class='sortClass("name")'><span data-translate="Name"></span></th>
                         <th class="align-right" ng-click='sortColumn("amount")' ng-class='sortClass("amount")'><span data-translate="Amount"></span></th>
                     </tr>
                 </thead>
@@ -46,9 +46,9 @@
                         <loading-no-data text="'No accounts found' | translate"></loading-no-data>
                     </td>
                 </tr>
-                <tr ng-if="richs !== 'error' && richs.length > 0" data-ng-repeat="rich in richs | orderBy:column:reverse | filter:search">
+                <tr ng-if="richs !== 'error' && richs.length > 0" data-ng-repeat="rich in richs | filter:search | orderBy:undefined:!reverse">
                     <td><a href='#/accounts/{{rich.id}}/'>{{rich.name}}</a></td>
-                    <td class="align-right">{{rich.amount | number: 0}} <a href='#/assets/1.3.0/'>{{ coreSymbol }}</a></td>
+                    <td class="align-right">{{rich.amount}} <a href='#/assets/1.3.0/'>{{ coreSymbol }}</a></td>
                 </tbody>
             </table>
         </div>
